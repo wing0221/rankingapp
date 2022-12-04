@@ -1,0 +1,64 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Chart Sample</title>
+</head>
+<body>
+    <h1>Chartサンプル</h1>
+    <div style="width: 600px;">
+        <canvas id="chart" width="600" height="400"></canvas>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI=" crossorigin="anonymous"></script>
+    <script>
+        var ctx = $('#chart');
+        var mychart = new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: [
+                    'ラベル１',
+                    'ラベル２',
+                    'ラベル３',
+                    'ラベル４',
+                    'ラベル５'
+                ],
+                datasets: [{
+                    label: 'データA',
+                    data: [
+                        10,40,20,10,20
+                    ],
+                    backgroundColor: 'rgba(241, 107, 141, 0.5)',
+                    borderColor: 'rgba(0, 0, 0, 0)',
+                    borderWidth: 1,
+                    pointBackgroundColor: 'rgb(46,106,177)',
+                },{
+                    label: 'データB',
+                    data: [
+                        40,10,5,15,30
+                    ],
+                    backgroundColor: 'rgba( 31, 167, 165, 0.5)',
+                    borderColor: 'rgba(0, 0, 0, 0)',
+                    borderWidth: 1,
+                    pointBackgroundColor: 'rgb(46,106,177)',
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'サンプルグラフ',
+                },
+                scale: {
+                    ticks: {
+                        suggestedMin: 0,
+                        suggestedMax: 100,
+                        stepSize: 10,
+                        callback: function(value, index, values){
+                            return  value +  '単位'
+                        }
+                    },
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+      th:replace="~{fragments/layout :: layout(~{::title}, ~{::body})}">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="mt-3">ランキング作成アプリ</h1>
+    <ul>
+        <li><a href="/user/list.html" th:href="@{/user/list}">ユーザ一覧</a></li>
+</body>
+</html>

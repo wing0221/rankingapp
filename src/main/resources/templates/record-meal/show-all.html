@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+      th:replace="~{fragments/layout :: layout(~{::title}, ~{::body})}">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="mt-3">本日の記録</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>日付</th>
+                <th>時間帯</th>
+                <th>タンパク質</th>
+                <th>糖質</th>
+                <th>脂質</th>
+                <th>ビタミン</th>
+                <th>ミネラル</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="MealParameter : ${RecordMealList}">
+                <th th:text="${MealParameter.id}">(id)</th>
+                <th th:text="${MealParameter.day}">(day)</th>
+                <th th:text="${MealParameter.meal_time_zone}">(meal_time_zone)</th>
+                <th th:text="${MealParameter.protein}">(protein)</th>
+                <th th:text="${MealParameter.sugar_content}">(sugar_content)</th>
+                <th th:text="${MealParameter.lipid}">(lipid)</th>
+                <th th:text="${MealParameter.vitamin}">(vitamin)</th>
+                <th th:text="${MealParameter.mineral}">(mineral)</th>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+      th:replace="~{fragments/layout :: layout(~{::title}, ~{::body})}">
+<head>
+    <title>Document</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="UTF-8" />
+</head>
+<body>
+    <h1 class="mt-3">ユーザ情報</h1>
+        <div>(編集)</div>
+        <div th:text="${User}">(user)</div>
+    </form>
+</body>
+</html>

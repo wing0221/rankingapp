@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+      th:replace="~{fragments/layout :: layout(~{::title}, ~{::body})}">
+<head>
+    <title>Document</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="UTF-8" />
+</head>
+<body>
+    <h1 class="mt-3">食事を記録しよう</h1>
+    <form 
+        action="#"
+        th:action="@{/record-meal}" 
+        th:method="post" 
+        th:object="${RecordMeal}" 
+        >
+        <!-- 五大栄養素 -->
+        <ul>
+            <li th:each="Nutrient : ${NutrientMap}">
+                <div>
+                    <label class="form-label"  th:text="${Nutrient.Key}">
+                        (栄養素)
+                    </label>
+                </div>
+                <div>
+                    <th:block th:each="RadioValue : ${RadioValues}">
+                    <input 
+                        type="radio" 
+                        th:name="${Nutrient.value}" 
+                        th:value="${RadioValue}" 
+                        th:text="${RadioValue}" 
+                        />
+                    </th:block>
+                </div>
+            </li>
+          </ul>
+        <!-- 日付 -->
+        <div>
+            <label class="mt-3">
+                ・日付
+            </label>
+        </div>
+        <div>
+            <input 
+                type="date" 
+                name="day"
+                class="form-control"
+                >
+        </div>
+        <!-- 時間帯 -->
+        <label class="mt-3">
+            ・食事をした時間帯
+        </label>
+        <select 
+            class="form-select form-select-sm mt-3" 
+            aria-label=".form-select-sm example"
+            name="meal_time_zone"
+            >
+            <option selected>時間帯を選択してください</option>
+            <option th:value="朝食">朝食</option>
+            <option th:value="昼食">昼食</option>
+            <option th:value="夕食">夕食</option>
+            <option th:value="間食">間食</option>
+        </select>
+        <!-- 送信 -->
+        <div class="mt-3">
+            <button type="submit" class="btn btn-primary">作成</button>
+            <a href="./"  class="btn btn-secondary">キャンセル</a>
+        </div>
+    </form>
+</body>
+</html>

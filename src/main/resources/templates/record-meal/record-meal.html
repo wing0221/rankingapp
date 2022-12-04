@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+      th:replace="~{fragments/layout :: layout(~{::title}, ~{::body})}">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="mt-3">食事を記録しよう</h1>
+    <ul>
+        <li><a href="./new.html" th:href="@{/record-meal/new}">食事を記録する</a></li>
+        <li><a href="./show.html" th:href="@{/record-meal/show}">本日の記録を確認する</a></li>
+        <li><a href="./show.html" th:href="@{/record-meal/show-all}">記録を全て確認する</a></li>
+        <li><div>本日の記録はすでに記録済みですorまだ記録されていません</div></li>
+    </ul>
+</body>
+</html>

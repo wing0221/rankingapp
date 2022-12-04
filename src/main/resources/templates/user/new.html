@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+      th:replace="~{fragments/layout :: layout(~{::title}, ~{::body})}">
+<head>
+    <title>Document</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="UTF-8" />
+</head>
+<body>
+    <h1 class="mt-3">ユーザ情報を入力</h1>
+        <div></div>
+        <form 
+            action="#"
+            th:action="@{list}" 
+            th:method="post" 
+        > 
+        <!-- 
+            TODO
+            ・エラーメッセージ
+            ・
+        -->
+            <div>
+                <label for="login_id">ログインID</label>
+                <input type="text" id="login_id_input" th:field="*{login_id}">
+            </div>
+            <div>
+                <label for="user_name">ユーザー名</label>
+                <input type="text" id="user_name_input" th:field="*{user_name}">
+            </div>
+            <div>
+                <label for="email">メールアドレス</label>
+                <input type="text" id="email_input" th:field="*{email}">
+            </div>
+            <div>
+                <label for="password">パスワード</label>
+                <input type="text" id="password_input" th:field="*{password}">
+            </div>
+            <div>
+                <label for="password_ready">パスワード確認用</label>
+                <input type="text" id="password_ready_input" th:field="*{password_ready}">
+            </div>
+            <div>
+                <label for="profile_img">自己紹介画像(入力必須ではない)</label>
+                <input type="text" id="profile_img_input" th:field="*{profile_img}">
+            </div>
+            <div>
+                <label for="profile">自己紹介文(入力必須ではない)</label>
+                <textarea id="profile_input" row="10"></textarea th:field="*{profile}">
+            </div>
+        <div class="mt-3">
+            <button type="submit" class="btn btn-primary">作成</button>
+            <a href="list"  class="btn btn-secondary">キャンセル</a>
+        </div>
+    </form>
+</body>
+</html>
