@@ -6,6 +6,10 @@ phases:
       java: corretto17
   build:
     commands:
+      - export SPRING_DATASOURCE_URL="jdbc:rankingappdb.c3lvwopuxlrs.ap-northeast-1.rds.amazonaws.com"
+      - export SPRING_DATASOURCE_USERNAME="root"
+      - export SPRING_DATASOURCE_PASSWORD="password"
+      - export SPRING_DATASOURCE_DRIVER_CLASS_NAME="com.mysql.cj.jdbc.Driver"
       - echo Build started on `date`
       - mvn package spring-boot:repackage
 artifacts:
